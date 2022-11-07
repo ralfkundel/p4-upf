@@ -1,0 +1,55 @@
+info:
+  version: 1.0.0
+  description: Configuration parameters for P4/DPDK based UPF
+
+configuration:
+  upfName: AnyName
+  logLevel: DebugLevel #TraceLevel, DebugLevel, InfoLevel, WarnLevel, ErrorLevel, FatalLevel
+  N4Interface:
+    addr: 172.16.5.19
+    port: 8805
+  tofino_grpc:
+    addr: 127.0.0.1 #if running on the Tofino
+    port: 50052
+  slowpath_connection:
+    switch_port:
+      addr: 10.0.10.2
+      mac_addr: ca:fe:ba:be:22:09
+      pipeline_port: 134
+      chassis_port: 31/2 #unused
+      autoneg: off
+      link_speed: 10G
+    sp_ipv4: 10.0.10.1
+  gtpu:
+    switch_port:
+      addr: 10.11.12.42 #just needed for arp replying
+      mac_addr: 10:00:00:00:00:01
+      pipeline_port: 132
+      chassis_port: 31/0 #unused
+      autoneg: off
+      link_speed: 10G
+    connected_gnb:
+      - addr: 10.11.12.14
+      - addr: 10.11.12.17
+  dnn_list:
+    - dnn: internet
+      cidr: 60.60.0.0/24
+      nat_ip: 10.0.11.100  #taken only for ARP
+      switch_port:
+        pipeline_port: 133
+        chassis_port: 31/1
+        addr: 10.0.11.99 #just needed for arp replying
+        mac_addr: 10:00:00:00:00:02
+        autoneg: off
+        link_speed: 10G
+  qos_chip:
+    enable_qos: false
+    addr: "1.2.3.4:10000"    
+    switch_port:
+      addr: 10.200.201.105
+      mac_addr: de:ad:be:ef:12:34
+      pipeline_port: 128
+      chassis_port: 1/0 #unused
+      autoneg: off
+      link_speed: 100G
+

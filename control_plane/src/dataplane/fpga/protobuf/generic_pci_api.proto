@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option go_package = "kom.tu-darmstadt.de/generic_pci_api";
+package generic_pci_api;
+
+service GenericPciApi {
+    rpc read32( Address) returns (Value32) {} //TODO with or without stream
+    rpc read64( Address) returns (Value64) {}
+    rpc write32( AddressValue32) returns(Response) {}
+    rpc write64( AddressValue64) returns(Response) {}
+
+}
+
+message Response {
+    bool success = 1;
+}
+
+message Address {
+    uint32  address = 1;
+}
+
+message Value32 {
+    uint32 value = 1;
+}
+
+message Value64 {
+    uint64 value = 1;
+}
+
+message AddressValue32 {
+    uint32  address = 1;
+    uint32 value = 2;
+}
+
+message AddressValue64 {
+    uint32  address = 1;
+    uint64 value = 2;
+}
