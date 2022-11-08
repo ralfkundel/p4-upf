@@ -85,3 +85,9 @@ All parameters are configured in control_plane/config/p4-upf.yaml  (the config f
 ## Funding
 
 This project was funded by Deutsche Telekom Technik GmbH as part of the project Dynamic Networks.
+
+## Code Style
+
+This repository uses the
+[GitHub Super-Linter](https://github.com/github/super-linter#super-linter) to
+check and enforce code style following community standards.
